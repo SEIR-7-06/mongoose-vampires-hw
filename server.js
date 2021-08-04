@@ -301,6 +301,31 @@ Vampire.findOneAndUpdate( {name:'Claudia'},{ $set:{name:'Eve'} }, (err, obj)=>{
 /////////////////////////////////////////////////
 // ## UPDATE
 
+/* Update 'Eve' to have a gender of 'm'
+Vampire.findOneAndUpdate( {name:'Eve'},{ $set:{gender:'m'} },{ $set:{name:'moniker'} }, (err, obj)=>{
+    if (err){
+        console.log(err)
+    }else{
+        console.log(obj)
+    }
+})  */
+/* Rename 'Eve's' name field to 'moniker'
+Vampire.findOneAndUpdate( {name:'Eve'},{ $set:{name:'moniker'} }, (err, obj)=>{
+    if (err){
+        console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) 
+ */
+/* We now no longer want to categorize female gender as "f", but rather as fems. Update all females so that the they are of gender "fems". */
+/* Vampire.updateMany({gender:'f'},{$set:{gender:'fems'}},(err, obj)=>{
+    if (err){
+        console.log(err)
+    }else{
+        console.log(obj)
+    }
+})  */
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
