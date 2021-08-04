@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); 
 const Schema = mongoose.Schema; 
 
-const vampireSchema = new Schema({
+const vampireSchema = new Schema({ //make schema
     name: { type:String, required: true},
     hair_color: {type:String, default:'blonde'},
     eye_color: {type: String},
@@ -12,10 +12,9 @@ const vampireSchema = new Schema({
     victims: {
         type:Number,
         min:0,
-        required:true
     }
 })
 
 
-const Vampire = mongoose.model('Vampire',vampireSchema)
-module.exports = Vampire
+const Vampire = mongoose.model('Vampire',vampireSchema) //turn schema into mongoose model
+module.exports = Vampire //export model

@@ -23,12 +23,20 @@ mongoose.connection.on('connected', () => {
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
-Vampire.collection.insertMany(vampireData, (err, data) => {
-    console.log("added provided vampire data")
-    mongoose.connection.close();
-  });
+
+/* Vampire.insertMany(vampireData, (err, data) => {
+    if(err){
+        console.log(err)
+    }
+    else{
+        console.log("added populate vampires")
+    }
+    
+  }); */
+
 // ### Add some new vampire data
-Vampire.collection.insertMany(
+
+/* Vampire.insertMany(
     [{
         name: 'testname0',
         dob: new Date(1922, 2, 8, 5, 3),
@@ -70,14 +78,60 @@ Vampire.collection.insertMany(
         victims: 134
       }], (err, data) => {
     console.log("added new vampire data")
-    mongoose.connection.close();
-  });
+  }); */
+ 
 
 
 /////////////////////////////////////////////////
 // ## QUERYING
 /////////////////////////////////////////////////
 // ### Select by comparison
+
+/* Find all the vampires that that are females
+Vampire.find({gender:'f'},(err,obj)=>{
+    if(err){return console.log(err)}
+    else {
+        console.log(obj)
+    }
+})
+ */
+/* have greater than 500 victims
+Vampire.find({victims:{ $gte: 150 }},(err,obj)=>{
+    if(err){return console.log(err)}
+    else {
+        console.log(obj)
+    }
+}) */
+/* have fewer than or equal to 150 victims
+Vampire.find({victims:{$lte:150}},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
+
+/* have a victim count is not equal to 210234
+Vampire.find({victims:{$ne:210234}},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+})  */
+/* have greater than 150 AND fewer than 500 victims
+Vampire.find({ 
+    $and:[{victims:{$gt:150}}, 
+    {victims:{$lt:500}}
+    ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) 
+ */
+
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
