@@ -329,7 +329,23 @@ Vampire.findOneAndUpdate( {name:'Eve'},{ $set:{name:'moniker'} }, (err, obj)=>{
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
+/* Remove a single document wherein the hair_color is 'brown' */
+/* Vampire.findOneAndRemove( {hair_color:'brown'}, (err, obj)=>{
+    if (err){
+        console.log(err)
+    }else{
+        console.log(obj)
+    }
+})  *//* 
+We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
 
+Vampire.deleteMany( {eye_color:'blue'}, (err, obj)=>{
+    if (err){
+        console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
