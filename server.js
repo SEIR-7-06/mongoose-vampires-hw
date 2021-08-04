@@ -214,9 +214,43 @@ Vampire.find({$or:[{eye_color:'green'},{hair_color: 'red'} ]},(err,obj)=>{
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
+/* love either frilly shirtsleeves or frilly collars
+Vampire.find({$or:[{loves:'frilly shirtsleeves'},{loves: 'frilly collars'} ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+})
+love brooding
+Vampire.find({{loves:'brooding'},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+})
+love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+Vampire.find({$or:[{loves:'appearing innocent'},{loves: 'trickery'},{loves: 'lurking in rotting mansions'},{loves: 'R&B music'} ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
+/* love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+Vampire.find({$and:[ {loves:'fancy cloaks'}, {loves:{$nin:'top hats'}},{loves:{$nin:'virgin blood'}},]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
 
 /////////////////////////////////////////////////
 //### Negative Selection
+
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
