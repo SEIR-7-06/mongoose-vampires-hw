@@ -176,12 +176,40 @@ Vampire.find({$and:[{victims:0},{title:{$exists:true}} ]},(err,obj)=>{
 
 /////////////////////////////////////////////////
 // ### Select with OR
-
-
 /* are from New York, New York, US or New Orleans, Louisiana, US
-love brooding or being tragic
-have more than 1000 victims or love marshmallows
-have red hair or green eyes */
+Vampire.find({$or:[{location:'New York, New York, US'},{location:'New Orleans, Louisiana, US'} ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
+
+/* love brooding or being tragic
+Vampire.find({$or:[{loves:'brooding'},{loves:'being tragic'} ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
+/* have more than 1000 victims or love marshmallows
+Vampire.find({$or:[{victims:{$gt: 1000}},{loves:'marshmallows'} ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
+
+/* have red hair or green eyes 
+Vampire.find({$or:[{eye_color:'green'},{hair_color: 'red'} ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
 
 
 /////////////////////////////////////////////////
