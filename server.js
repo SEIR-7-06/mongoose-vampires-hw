@@ -287,6 +287,15 @@ Vampire.find({victims: {$lte:200}},(err,obj)=>{
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
+/* Replace the vampire called 'Claudia' with a vampire called 'Eve'.
+Vampire.findOneAndUpdate( {name:'Claudia'},{ $set:{name:'Eve'} }, (err, obj)=>{
+    if (err){
+        console.log(err)
+    }else{
+        console.log(obj)
+    }
+}) */
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
