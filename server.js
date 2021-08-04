@@ -135,9 +135,54 @@ Vampire.find({
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+/* have a title property
+Vampire.find({title:{$exists:true}},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+        console.log("has a title")
+    }
+})  */
+/* do not have a victims property
+Vampire.find({victims:{$exists:false}},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+        console.log("does not have victims")
+    }
+}) */
+
+/* have a title AND no victims
+Vampire.find({$and:[{victims:{$exists:true}},{victims:{$gte:1000}} ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+        console.log("has no victims but has title")
+    }
+}) */
+/* have victims AND the victims they have are greater than 1000
+Vampire.find({$and:[{victims:0},{title:{$exists:true}} ]},(err,obj)=>{
+    if(err){
+        return console.log(err)
+    }else{
+        console.log(obj)
+        console.log("has victims and over 1000")
+    }
+}) */
+
 
 /////////////////////////////////////////////////
 // ### Select with OR
+
+
+/* are from New York, New York, US or New Orleans, Louisiana, US
+love brooding or being tragic
+have more than 1000 victims or love marshmallows
+have red hair or green eyes */
+
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
