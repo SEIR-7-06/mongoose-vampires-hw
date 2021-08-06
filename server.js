@@ -1,13 +1,17 @@
 // 1. Require Mongoose
-
+const mongoose = require('mongoose')
 // 2. Require your Model
-
+const monVampire = require('./vampire')
 // 3. Require your extra data source
 
 // 4. Connect your database
 
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
+db.Vampire.create(VampireData, (err, addVampires) => {
+    if(err) return console.log(err);
+    console.log(addVampires)
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////

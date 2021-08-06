@@ -1,0 +1,38 @@
+      db.vampireData.insert([{
+        name: 'Count',
+        hair_color: 'blonde',
+        eye_color: 'brown',
+        dob: new Date(1571, 2, 13, 7, 47),
+        loves: ['cereal','marshmallows'],
+        location: 'Minneapolis, Minnesota, US',
+        gender: 'm',
+        victims: 2,
+      },{
+        name: 'Joker',
+        hair_color: 'green',
+        eye_color: 'brown',
+        dob: new Date(171, 2, 15, 7, 47),
+        loves: ['robin'],
+        location: 'gotham',
+        gender: 'm',
+        victims: 300,
+      },{
+        name: 'Harley Quinn',
+        hair_color: 'blonde',
+        eye_color: 'black',
+        dob: new Date(1990, 7, 17, 7, 47),
+        loves: ['hammers','joker'],
+        location: 'Gotham',
+        gender: 'f',
+        victims: 88,
+      },{
+        name: 'Alucard',
+        hair_color: 'silver',
+        eye_color: 'brown',
+        dob: new Date(1671, 8, 22, 3, 50),
+        loves: ['Dracula'],
+        location: 'Castlevania',
+        gender: 'f',
+        victims: 1000,
+      }]
+      )
