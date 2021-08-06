@@ -1,5 +1,4 @@
-const vampires =
-
+const vampireData =
 [
   {
     name: 'Count Chocula',
@@ -138,3 +137,5 @@ const vampires =
     title: 'Osiris of Sewer Rats'
   }
 ]
+
+module.exports = vampireData
