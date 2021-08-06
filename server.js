@@ -1,4 +1,5 @@
 // 1. Require Mongoose
+const mongoose = require('mongoose');
 
 // 2. Require your Model
 
