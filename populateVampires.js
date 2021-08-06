@@ -1,4 +1,4 @@
-[
+const vampireData = [
   {
     name: 'Count Chocula',
     hair_color: 'brown',
@@ -136,3 +136,47 @@
     title: 'Osiris of Sewer Rats'
   }
 ]
+
+const customVamps = [  {
+  name: 'Count lamemulahh',
+  hair_color: 'gray',
+  eye_color: 'green',
+  dob: new Date(1689, 2, 8, 7, 47),
+  loves: ['cereal','marshmallows'],
+  location: 'Minneapolis, Minnesota, US',
+  gender: 'm',
+  victims: 2
+},{
+  name: 'Alucard',
+  dob: new Date(937, 0, 24, 13, 0),
+  hair_color: 'brown',
+  eye_color: 'blue',
+  loves: ['Winona Ryder', 'top hats', 'fancy cloaks', 'handlebar   mustaches'],
+  location: 'Transylvania, Romania',
+  gender: 'm',
+  victims: 1238
+},{
+  name: 'That one girl from twilight',
+  dob: new Date(1575, 8, 7, 22, 10),
+  hair_color: 'brown',
+  eye_color: 'brown',
+  loves: ['virgin blood', 'fancy cloaks','frilly collars'],
+  location: 'Nyírbátor, Hungary',
+  gender: 'f',
+  victims: 980
+},{
+  name: 'big lady :)',
+  dob: new Date(1760, 11, 9, 18, 44),
+  hair_color: 'blonde',
+  eye_color: 'blue',
+  loves: ['frilly shirtsleeves', 'frilly collars', 'lurking in   rotting mansions', 'Louis'],
+  location: 'Auvergne, France',
+  gender: 'f',
+  victims: 324
+}]
+
+
+module.exports = {
+    customVamps: require('./populateVampires.js'),
+    vampireData: require('./models/vampire.js')
+}

@@ -1,4 +1,5 @@
 const mongoose  = require("mongoose");
+// const vampireData = require('vampireData')
 
 const vampireSchema = new mongoose.Schema({
     name: {type: String, required: true},
@@ -12,5 +13,6 @@ const vampireSchema = new mongoose.Schema({
 });
 
 const Vampire = mongoose.model('Vampire', vampireSchema);
+
 
 module.exports = Vampire;
