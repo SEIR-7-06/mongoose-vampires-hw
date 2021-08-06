@@ -1,3 +1,5 @@
+const vampires =
+
 [
   {
     name: 'Count Chocula',
