@@ -84,14 +84,32 @@ mongoose.connection.on('connected', () => {
 //     if (err) return console.log(err);
 //     console.log(allVampires)
 // })
-Vampire.find({$and: [{victims: {$exists: true}}, {victims: {$gt: 1000}}]},
-    (err, allVampires) => {
-        if (err) return console.log(err);
-        console.log(allVampires)
-    })
+// Vampire.find({$and: [{victims: {$exists: true}}, {victims: {$gt: 1000}}]},
+//     (err, allVampires) => {
+//         if (err) return console.log(err);
+//         console.log(allVampires)
+//     })
 /////////////////////////////////////////////////
 // ### Select with OR
-
+// Vampire.find({$or: [{location: 'New York, New York, US'}, {location: 'New Orleans, Louisiana, US'}]},
+// (err, allVampires) => {
+// if (err) return console.log(err)
+// console.log(allVampires)
+// })
+// Vampire.find({loves: {$in: ['brooding', 'being tragic']}},
+// (err, allVampires) => {
+// if (err) return console.log(err)
+// console.log(allVampires)
+// })
+// Vampire.find({$or: [{victims: {$gt: 1000}}, {loves: 'marshmallows'}]},
+//     (err, allVampires) => {
+//         if (err) return console.log(err)
+//         console.log(allVampires)
+// })
+Vampire.find({$or: [{hair_color: 'red'}, {eye_color: 'green'}]}, (err, allVampires) =>
+    { if (err) console.log(err)
+        console.log(allVampires)
+})
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
