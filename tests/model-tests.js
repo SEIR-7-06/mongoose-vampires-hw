@@ -132,7 +132,7 @@ describe('Vampire schema', function() {
             loves: [{cool: false}, "breaking stuff"]
         });
         uncool.validate(function(err){
-            expect(err.errors.loves).to.exist;
+            expect(err.errors['loves.0']).to.exist;
             done()
         })
     })
