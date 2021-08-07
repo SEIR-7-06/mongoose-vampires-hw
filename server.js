@@ -41,6 +41,8 @@ mongoose.connection.on('connected', () => {
 
 /////////////////////////////////////////////////
 // ## QUERYING
+/////////////////////////////////////////////////
+// ### Select by comparison
 // Vampire.find({gender: 'f'}, (err, allVampires) => {
 //     if (err) return console.log(err);
 //     console.log(allVampires)
@@ -59,16 +61,34 @@ mongoose.connection.on('connected', () => {
 //     if (err) return console.log(err);
 //     console.log(allVampires)
 // })
-Vampire.find({$and: [{victims: {$gt: 150 }}, {victims: {$lt: 5000}} ]}, (err, allVampires) => {
-    if (err) return console.log(err);
-    console.log(allVampires)
-})
-/////////////////////////////////////////////////
-// ### Select by comparison
+// Vampire.find({$and: [{victims: {$gt: 150 }}, {victims: {$lt: 5000}} ]}, (err, allVampires) => {
+//     if (err) return console.log(err);
+//     console.log(allVampires)
+// })
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
-
+// Vampire.find({title: {$exists: true }}, (err, allVampires) => {
+//     if (err) return console.log(err);
+//     console.log(allVampires)
+// })
+// Vampire.find({victims: {$exists: false }}, (err, allVampires) => {
+//     if (err) return console.log(err);
+//     console.log(allVampires)
+// })
+// Vampire.find({$and: 
+//      {$or: [{victims: {$exist: false, $in :[0]}}]},
+//     [{victims: {$exists: false }},
+//      {title: {$exists: true}}
+//     ]}, (err, allVampires) => {
+//     if (err) return console.log(err);
+//     console.log(allVampires)
+// })
+Vampire.find({$and: [{victims: {$exists: true}}, {victims: {$gt: 1000}}]},
+    (err, allVampires) => {
+        if (err) return console.log(err);
+        console.log(allVampires)
+    })
 /////////////////////////////////////////////////
 // ### Select with OR
 
