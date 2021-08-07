@@ -134,6 +134,25 @@ mongoose.connection.on('connected', () => {
 // })
 /////////////////////////////////////////////////
 //### Negative Selection
+// Vampire.find({$and: [{loves: 'ribbons'}, {eye_color: {$ne: 'brown'}}]}, (err, allVampires) =>
+// {
+//     if (err) console.log(err)
+//     console.log(allVampires)
+// })
+// Vampire.find({location: {$ne: 'Rome'}}, (err, allVampires) =>
+// {
+//     if (err) console.log(err)
+//     console.log(allVampires)
+// })
+// Vampire.find({loves: {$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']}}, (err, allVampires) =>
+// {
+//     if (err) console.log(err)
+//     console.log(allVampires)
+// })
+Vampire.find({victims: {$lte: 200}}, (err, allVampires) => {
+    if (err) return console.log(err)
+    console.log(allVampires)
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
