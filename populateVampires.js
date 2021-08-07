@@ -177,6 +177,6 @@ const customVamps = [  {
 
 
 module.exports = {
-    customVamps: require('./populateVampires.js'),
-    vampireData: require('./models/vampire.js')
-}
+    customVamps,
+    vampireData
+  }
