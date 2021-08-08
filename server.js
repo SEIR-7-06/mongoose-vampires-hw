@@ -193,21 +193,12 @@ mongoose.connection.on('connected', () => {
 // })
 
 ////////// 4. RED HAIR / GREEN EYES ////////////////////
-Vampire.find({ 
-  $or: [ 
-    { hair_color : 'red'},
-    { eye_color: 'green' } 
-  ]
-}, 
-  function (err, vamp){
-    if (err) {
-        console.log(err)
-    }else{
-        console.log("Result :", vamp)
-    }
-})
-
-// Vampire.find().or([ { location : 'New York, New York, US'}, {location : 'New Orleans, Louisiana, US' } ]), 
+// Vampire.find({ 
+//   $or: [ 
+//     { hair_color : 'red'},
+//     { eye_color: 'green' } 
+//   ]
+// }, 
 //   function (err, vamp){
 //     if (err) {
 //         console.log(err)
@@ -217,8 +208,70 @@ Vampire.find({
 // })
 
 
+
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
+
+////////// 1. frilly shirtsleeves / frilly collars ////////////////////
+// Vampire.find({ 
+//   $or: [ 
+//     { loves: 'frilly shirtsleeves'},
+//     { loves: 'frilly collars' } 
+//   ]
+// }, 
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 2. LOVES BROODING ////////////////////
+// Vampire.find({ 
+//   loves: 'brooding'
+// }, 
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 3. appearing innocent, trickery, lurking in rotting mansions, R&B music ////////////////////
+// Vampire.find({ 
+//   $or: [ 
+//     { loves: 'appearing innocent' },
+//     { loves: 'trickery' },
+//     { loves: 'lurking in rotting mansions' },
+//     { loves: 'R&B music' }
+//   ]
+// }, 
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 4. loves fancy cloaks but not if they also love either top hats or virgin blood ////////////////////
+Vampire.find({
+  $and: [ 
+    { loves: 'fancy cloaks' },
+    { loves: { $nin: ['top hats'] }},
+    { loves: { $nin: ['virgin blood'] }}
+  ]
+},
+  function (err, vamp){
+    if (err) {
+        console.log(err)
+    }else{
+        console.log("Result :", vamp)
+    }
+})
+
 
 /////////////////////////////////////////////////
 //### Negative Selection
