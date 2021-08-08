@@ -1,5 +1,6 @@
 // 1. Require Mongoose
 const mongoose = require('mongoose');
+const Vampire = require('./models/Vampire.js');
 
 // 2. Require your Model
 module.exports = {
@@ -7,9 +8,7 @@ module.exports = {
 }
 
 // 3. Require your extra data source
-module.exports = {
-    Populate: require('./populateVampires.js')
-}
+const vampData = require('./populateVampires.js')
 
 // 4. Connect your database
 const connectionString = 'mongodb://localhost:27017/vampiresdb';
@@ -34,7 +33,11 @@ mongoose.connection.on('connected', () => {
 /////////////////////////////////////////////////
 // INSERT USING MONGOOSE
 // ### Add the vampire data that we gave you
-
+Vampire.collection.insertMany(vampData, (err, data) => {
+    if (err) return console.log(err);
+    console.log(data)
+    mongoose.connection.close();
+})
 // ### Add some new vampire data
 
 /////////////////////////////////////////////////
