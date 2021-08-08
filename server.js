@@ -1,12 +1,12 @@
 // 1. Require Mongoose
 const mongoose = require('mongoose');
-const Vampire = require('./models/Vampire.js');
-// const Vampire = require('./models/Vampire.js');
+
 
 // 2. Require your Model
-module.exports = {
-    Vampire: require('./models/Vampire.js')
-}
+// module.exports = {
+//     Vampire: require('./models/Vampire.js')
+// }
+const Vampire = require('./models/Vampire.js');
 
 // 3. Require your extra data source
 const vampData = require('./populateVampires.js')
@@ -105,13 +105,32 @@ mongoose.connection.on('connected', () => {
 //     console.log(exceptOne)
 // })
 
-Vampire.find({$and:[{victims: {$gt: 150}}, {victims: {$lt:500}}]}, (err, special) => {
-    if (err) return console.log(err)
-    console.log(special)
-})
+// Vampire.find({$and:[{victims: {$gt: 150}}, {victims: {$lt:500}}]}, (err, special) => {
+//     if (err) return console.log(err)
+//     console.log(special)
+// })
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+// Vampire.find({title: {$exists: true}}, (err, has) => {
+//     if (err) return console.log(err)
+//     console.log(has)
+// })
+
+// Vampire.find({victims: {$exists: false}}, (err, noVic) => {
+//     if (err) return console.log(err)
+//     console.log(noVic)
+// })
+
+// Vampire.find({$and: [{title: {$exists: true}}, {victims: {$exists: false}}]}, (err, unicorn) => {
+//     if (err) return console.log(err) 
+//     console.log(unicorn)
+// })
+
+Vampire.find({$and: [{victims: {$exists: true}}, {victims: {$gt:1000}}]}, (err, killer) => {
+    if (err) return console.log(err)
+    console.log(killer)
+})
 
 /////////////////////////////////////////////////
 // ### Select with OR
