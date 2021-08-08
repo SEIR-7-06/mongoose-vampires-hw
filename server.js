@@ -1,5 +1,6 @@
 // 1. Require Mongoose
-
+const mongoose = require('mongoose');
+const Vampire = require('./models/vampire.js')
 // 2. Require your Model
 
 // 3. Require your extra data source
