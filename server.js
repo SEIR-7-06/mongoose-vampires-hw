@@ -135,7 +135,71 @@ mongoose.connection.on('connected', () => {
 // })
 
 ////////// 1. HAS VICTIMS & GREATER THAN 1000 VICTIMS ////////////////////
-Vampire.find({ victims :{ $exists: true}, victims :{$gt: 1000}}, function (err, vamp){
+// Vampire.find({ victims :{ $exists: true}, victims :{$gt: 1000}}, function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+
+/////////////////////////////////////////////////
+// ### Select with OR
+
+////////// 1. NY OR NEW ORLEANS ////////////////////
+// Vampire.find({ 
+//   $or: [ 
+//     { location : 'New York, New York, US'},
+//     { location: 'New Orleans, Louisiana, US' } 
+//   ]
+// }, 
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 2. BROODING OR BEING TRAGIC ////////////////////
+// Vampire.find({ 
+//   $or: [ 
+//     { loves : 'brooding'},
+//     { loves: 'being tragic' } 
+//   ]
+// }, 
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 3. LOVES MARSHMALLOWS / OVER 1000 VICTIMS ////////////////////
+// Vampire.find({ 
+//   $or: [ 
+//     { loves : 'marshmallows'},
+//     { victims: {$gt : 1000} } 
+//   ]
+// }, 
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 4. RED HAIR / GREEN EYES ////////////////////
+Vampire.find({ 
+  $or: [ 
+    { hair_color : 'red'},
+    { eye_color: 'green' } 
+  ]
+}, 
+  function (err, vamp){
     if (err) {
         console.log(err)
     }else{
@@ -143,9 +207,15 @@ Vampire.find({ victims :{ $exists: true}, victims :{$gt: 1000}}, function (err, 
     }
 })
 
+// Vampire.find().or([ { location : 'New York, New York, US'}, {location : 'New Orleans, Louisiana, US' } ]), 
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
 
-/////////////////////////////////////////////////
-// ### Select with OR
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
