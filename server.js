@@ -3,9 +3,6 @@ const mongoose = require('mongoose');
 
 
 // 2. Require your Model
-// module.exports = {
-//     Vampire: require('./models/Vampire.js')
-// }
 const Vampire = require('./models/Vampire.js');
 
 // 3. Require your extra data source
@@ -127,13 +124,32 @@ mongoose.connection.on('connected', () => {
 //     console.log(unicorn)
 // })
 
-Vampire.find({$and: [{victims: {$exists: true}}, {victims: {$gt:1000}}]}, (err, killer) => {
-    if (err) return console.log(err)
-    console.log(killer)
-})
+// Vampire.find({$and: [{victims: {$exists: true}}, {victims: {$gt:1000}}]}, (err, killer) => {
+//     if (err) return console.log(err)
+//     console.log(killer)
+// })
 
 /////////////////////////////////////////////////
 // ### Select with OR
+// Vampire.find({$or: [{location:"New York, New York, US"}, {location: "New Orleans, Louisiana, US"}]}, (err, lives) => {
+//     if (err) return console.log(err)
+//     console.log(lives)
+// })
+
+// Vampire.find({$or: [{loves: "brooding"}, {loves:"being tragic"}]}, (err, drama) => {
+//     if (err) return console.log(err)
+//     console.log(drama)
+// })
+
+// Vampire.find({$or: [{victims: {$gt:1000}}, {loves:"marshmallows"}]}, (err, weirdo) =>{
+//     if (err) return console.log(err)
+//     console.log(weirdo)
+// })
+
+// Vampire.find({$or: [{hair_color: "red"}, {eye_color: "green"}]}, (err, traits) => {
+//     if (err) return console.log(err)
+//     console.log(traits)
+// })
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
