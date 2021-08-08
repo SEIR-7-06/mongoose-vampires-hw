@@ -257,13 +257,74 @@ mongoose.connection.on('connected', () => {
 // })
 
 ////////// 4. loves fancy cloaks but not if they also love either top hats or virgin blood ////////////////////
-Vampire.find({
-  $and: [ 
-    { loves: 'fancy cloaks' },
-    { loves: { $nin: ['top hats'] }},
-    { loves: { $nin: ['virgin blood'] }}
-  ]
-},
+// Vampire.find({
+//   $and: [ 
+//     { loves: 'fancy cloaks' },
+//     { loves: { $nin: ['top hats'] }},
+//     { loves: { $nin: ['virgin blood'] }}
+//   ]
+// },
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+
+/////////////////////////////////////////////////
+//### Negative Selection
+
+////////// 1. love ribbons but do not have brown eyes ////////////////////
+// Vampire.find({
+//   $and: [ 
+//     { loves: 'ribbons' },
+//     { eye_color: { $nin: ['brown'] }}
+//   ]
+// },
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 2. are not from Rome ////////////////////
+// Vampire.find(
+//     { location: { $nin: ['Rome, Italy'] }}
+// ,
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 3. love ribbons but do not have brown eyes ////////////////////
+// Vampire.find({
+//   $and: [ 
+//     { loves: { $nin: ['fancy cloaks'] }},
+//     { loves: { $nin: ['frilly shirtsleeves'] }},
+//     { loves: { $nin: ['appearing innocent'] }},
+//     { loves: { $nin: ['being tragic'] }},
+//     { loves: { $nin: ['brooding'] }}
+//   ]
+// },
+//   function (err, vamp){
+//     if (err) {
+//         console.log(err)
+//     }else{
+//         console.log("Result :", vamp)
+//     }
+// })
+
+////////// 4. have not killed more than 200 people ////////////////////
+Vampire.find(
+    { victims: {$lt: 200 }}
+,
   function (err, vamp){
     if (err) {
         console.log(err)
@@ -271,10 +332,6 @@ Vampire.find({
         console.log("Result :", vamp)
     }
 })
-
-
-/////////////////////////////////////////////////
-//### Negative Selection
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
