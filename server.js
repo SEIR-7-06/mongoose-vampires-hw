@@ -50,41 +50,65 @@ mongoose.connection.on('connected', () => {
 // 	gender: 'f', 
 // 	victims: 186
 // })
-Vampire.create({
-	name: 'Astrid Blair',  
-	hair_color: 'silver', 
-	eye_color: 'green',  
-	dob: (110, 02, 22), 
-	loves: ['glass blowing', 'snowboarding', 'hiking', 'hot chocolate'], 
-	location: 'Swiss Alps', 
-	gender: 'f', 
-	victims: 4
-})
-Vampire.create({
-	name: 'Julian Frost',  
-	hair_color: 'black', 
-	eye_color: 'amber',  
-	dob: (2050, 10, 3), 
-	loves: ['helping people', 'forging weapons', 'visiting friends', 'travelling'], 
-	location: 'Kyoto, Japan', 
-	gender: 'm', 
-	victims: 999
-})
-Vampire.create({
-	name: 'Gio Galileo',  
-	hair_color: 'red', 
-	eye_color: 'black',  
-	dob: (1946, 12, 1), 
-	loves: ['hiding', 'motorcycles', 'meat'], 
-	location: 'unknown', 
-	gender: 'm', 
-	victims: 420
-})
+// Vampire.create({
+// 	name: 'Astrid Blair',  
+// 	hair_color: 'silver', 
+// 	eye_color: 'green',  
+// 	dob: (110, 02, 22), 
+// 	loves: ['glass blowing', 'snowboarding', 'hiking', 'hot chocolate'], 
+// 	location: 'Swiss Alps', 
+// 	gender: 'f', 
+// 	victims: 4
+// })
+// Vampire.create({
+// 	name: 'Julian Frost',  
+// 	hair_color: 'black', 
+// 	eye_color: 'amber',  
+// 	dob: (2050, 10, 3), 
+// 	loves: ['helping people', 'forging weapons', 'visiting friends', 'travelling'], 
+// 	location: 'Kyoto, Japan', 
+// 	gender: 'm', 
+// 	victims: 999
+// })
+// Vampire.create({
+// 	name: 'Gio Galileo',  
+// 	hair_color: 'red', 
+// 	eye_color: 'black',  
+// 	dob: (1946, 12, 1), 
+// 	loves: ['hiding', 'motorcycles', 'meat'], 
+// 	location: 'unknown', 
+// 	gender: 'm', 
+// 	victims: 420
+// })
 
 /////////////////////////////////////////////////
 // ## QUERYING
 /////////////////////////////////////////////////
 // ### Select by comparison
+// Vampire.find({gender: "f"}, (err, foundWomen) => {
+//     if (err) return console.log(error)
+//     console.log(foundWomen)
+// })
+
+// Vampire.find({victims: {$gt: 500}}, (err, highCount) => {
+//     if (err) return console.log(error)
+//     console.log(highCount)
+// })
+
+// Vampire.find({victims: {$lte: 150}}, (err, lowCount) => {
+//     if (err) return console.log(error)
+//     console.log(lowCount)
+// })
+
+// Vampire.find({victims: {$ne: 210234}}, (err, exceptOne) => {
+//     if (err) return console.log(err)
+//     console.log(exceptOne)
+// })
+
+Vampire.find({$and:[{victims: {$gt: 150}}, {victims: {$lt:500}}]}, (err, special) => {
+    if (err) return console.log(err)
+    console.log(special)
+})
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
