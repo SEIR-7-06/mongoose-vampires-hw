@@ -1,4 +1,5 @@
 // 1. Require Mongoose
+const { query } = require('express');
 const mongoose = require('mongoose')
 
 // 2. Require your Model
@@ -54,10 +55,10 @@ mongoose.connection.on('connected', () => {
 //     console.log(foundVampires)
 // })
 
-Vampire.find({ victims: { $ne: 210234 }}, (err, foundVampires) => {
-    if(err) return console.log(err)
-    console.log(foundVampires)
-})
+// Vampire.find({ victims: { $ne: 210234 } }, (err, foundVampires) => {
+//     if (err) return console.log(err)
+//     console.log(foundVampires)
+// })
 
 // Vampire.find({ victims: { $gt: 150, $lte: 500 } }, (err, foundVampires) => {
 //     if (err) return console.log(err)
@@ -73,6 +74,41 @@ Vampire.find({ victims: { $ne: 210234 }}, (err, foundVampires) => {
 
 /////////////////////////////////////////////////
 // ### Select with OR
+// Vampire.find({
+//     $or: [
+//         { location: 'New York, New York, US' },
+//         { location: 'New Orleans, Louisiana, US' }]
+// }, (err, foundVampires) => {
+//     if (err) return console.log (err)
+//     console.log(foundVampires)
+// })
+
+// Vampire.find({
+//     $or: [
+//         { loves: 'brooding' },
+//         { loves: 'being tragic' }]
+// }, (err, foundVampires) => {
+//     if (err) return console.log (err)
+//     console.log(foundVampires)
+// })
+
+// Vampire.find({
+//     $or: [
+//         { victims: {$gt: 1000} },
+//         { loves: 'marshmallows' }]
+//     }, (err, foundVampires) => {
+//         if (err) return console.log (err)
+//         console.log(foundVampires)
+// })
+
+// Vampire.find({
+//     $or: [
+//         { hair_color: 'red' },
+//         { eye_color: 'green' }]
+//     }, (err, foundVampires) => {
+//         if (err) return console.log (err)
+//         console.log(foundVampires)
+// })
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
