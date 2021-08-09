@@ -1,10 +1,25 @@
 // 1. Require Mongoose
-
+const mongoose = require('mongoose')
 // 2. Require your Model
-
+const Vampire = require('./models/vampire.js')
 // 3. Require your extra data source
-
+const vampiersData = require('./populateVampires')
 // 4. Connect your database
+
+const connectionString = 'mongodb://localhost:27017/vampiresdb';
+
+// Fire off the connection to Mongo DB
+mongoose.connect(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
+
+mongoose.connection.on('connected', () => {
+    console.log(`Mongoose connected to ${connectionString}`);
+  });
+  
 
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
@@ -15,7 +30,10 @@
 // ### Add the vampire data that we gave you
 
 // ### Add some new vampire data
-
+Vampire.create(vampireData, (err, createdVampires)=>{
+    if (err) return console.log(err)
+    console.log('Created Vampires')
+})
 /////////////////////////////////////////////////
 // ## QUERYING
 /////////////////////////////////////////////////
@@ -43,9 +61,7 @@
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// ## REMOVE
-
-/////////////////////////////////////////////////
+// ## REMOVE/////////////////////////////////////////////////
 /////////////////////////////////////////////////
 
 // ## HUNGRY FOR MORE
