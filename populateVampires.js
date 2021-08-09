@@ -91,7 +91,7 @@ const vampires = [
     dob: new Date(1901, 6, 20, 0, 57),
     hair_color: 'brown',
     eye_color: 'brown',
-    loves: ['brooding', 'diamond skin', 'calling people spider   monkeys'],
+    loves: ['brooding', 'diamond skin', 'calling people spider monkeys'],
     location: 'Chicago, Illinois, US',
     gender: 'm',
   },{
