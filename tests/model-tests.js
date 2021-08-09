@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const Vampire = require('../models/vampire');
+const Vampire = require('../models/Vampire');
 
 describe('Vampire schema', function() {
     it('should work as expected with good inputs', function(done){
@@ -132,7 +132,7 @@ describe('Vampire schema', function() {
             loves: [{cool: false}, "breaking stuff"]
         });
         uncool.validate(function(err){
-            expect(err.errors.loves).to.exist;
+            expect(err.errors['loves.0']).to.exist;
             done()
         })
     })
