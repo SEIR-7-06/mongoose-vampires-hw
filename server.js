@@ -202,6 +202,15 @@ mongoose.connection.on('connected', () => {
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
+// Vampire.findOneAndUpdate({name: "Claudia"}, {name: "Eve"}, (err, update) => {
+//     if (err) return console.log(err)
+//     console.log(update)
+// })
+Vampire.find({name: "Eve"}, (err, named) => {
+    if (err) return console.log(err)
+    console.log(named)
+})
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
