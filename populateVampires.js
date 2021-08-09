@@ -1,4 +1,4 @@
-[
+const vampires = [
   {
     name: 'Count Chocula',
     hair_color: 'brown',
@@ -137,4 +137,4 @@
   }
 ]
 
-module.exports = Vampire
+module.exports = vampires
