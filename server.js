@@ -83,6 +83,10 @@ mongoose.connect(connectionString, {
 /////////////////////////////////////////////////
 // ## QUERYING
 
+
+/////////////////////////////////////////////////
+// ### Select by comparison
+
 // Vampire.find({ gender: "f"}, (err, foundWomen) => {
 //     if (err) return console.log(err);
 //     console.log(foundWomen);
@@ -103,16 +107,32 @@ mongoose.connect(connectionString, {
 //     console.log(notEqualVictims);
 // } )
 
-Vampire.find({ victims: { $gt: 150, $lt: 500 } }, (err, foundVampires) => {
-    if (err) return console.log(err);
-    console.log(foundVampires);
-})
-
-/////////////////////////////////////////////////
-// ### Select by comparison
-
+// Vampire.find({ victims: { $gt: 150, $lt: 500 } }, (err, foundVampires) => {
+//     if (err) return console.log(err);
+//     console.log(foundVampires);
+// })
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+
+// Vampire.find({ title: { $exists: true } }, (err, titleVampires) => {
+//     if (err) return console.log(err);
+//     console.log(titleVampires);
+// })
+
+// Vampire.find({ victims: { $exists: false } }, (err, noVictims) => {
+//     if (err) return console.log(err);
+//     console.log(noVictims);
+// })
+
+// Vampire.find({ $and: [ { title: { $exists: true } }, { victims: { $exists: false } } ] }, (err, newVampires) => {
+//     if (err) return console.log(err);
+//     console.log(newVampires);
+// })
+
+Vampire.find( {victims : { $gt: 1000 } }, (err, manyVictims) => {
+    if (err) return console.log(err);
+    console.log(manyVictims);
+} )
 
 /////////////////////////////////////////////////
 // ### Select with OR
