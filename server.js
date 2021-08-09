@@ -117,9 +117,43 @@ Vampire.create(vampireData, (err, createdVampires) => {
 /////////////////////////////////////////////////
 // ### Select with OR
 
-//1
-Vampire.find({ location: {New York New York US $or New Orleans Louisiana US} }, (err, foundVampires) => {
-  if(err) return console.log(err)
+//1:
+// Vampire.find({ $or: [
+//   { location: 'New York, New York, US' },
+//   { location: 'New Orleans, Louisiana, US' }
+// ]},
+// (err, foundVampires) => {
+//   if (err) return console.log(err)
+//   console.log(foundVampires)
+// })
+
+//2:
+// Vampire.find({ $or: [
+//   { loves: 'brooding' },
+//   { loves: 'being tragic' }
+// ]},
+// (err, foundVampires) => {
+//   if (err) return console.log(err)
+//   console.log(foundVampires)
+// })
+
+//3:
+// Vampire.find({ $or: [
+//   { victims: {$gt: 1000}},
+//   { loves: 'marshmallows'}
+// ]},
+// (err, foundVampires) => {
+//   if (err) return console.log(err)
+//   console.log(foundVampires)
+// })
+
+//4:
+Vampire.find({ $or: [
+  { hair_color: 'red'},
+  { eye_color: 'green'}
+]},
+(err, foundVampires) => {
+  if (err) return console.log(err)
   console.log(foundVampires)
 })
 
