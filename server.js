@@ -184,23 +184,82 @@ mongoose.connection.on('connected', () => {
 //     }
 // )
 // 4. have red hair or green eyes
-Vampire.find({ $or: [
-    { hair_color: 'red' },
-    { eye_color: 'green' }
-]},
-    function (err, foundVampires){
-        if (err) {
-            console.log(err);
-            mongoose.connection.close();
-        } else {
-            console.log(foundVampires)
-            mongoose.connection.close();
-        }
-    }
-)
+// Vampire.find({ $or: [
+//     { hair_color: 'red' },
+//     { eye_color: 'green' }
+// ]},
+//     function (err, foundVampires){
+//         if (err) {
+//             console.log(err);
+//             mongoose.connection.close();
+//         } else {
+//             console.log(foundVampires)
+//             mongoose.connection.close();
+//         }
+//     }
+// )
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
-
+// 1. love either frilly shirtsleeves or frilly collars
+// Vampire.find({ $or: [
+//     { loves: 'frilly shirtsleeves' },
+//     { eye_color: 'frilly collars' }
+// ]},
+//     function (err, foundVampires){
+//         if (err) {
+//             console.log(err);
+//             mongoose.connection.close();
+//         } else {
+//             console.log(foundVampires)
+//             mongoose.connection.close();
+//         }
+//     }
+// )
+// 2. love brooding
+// Vampire.find({ loves: 'brooding' },
+//     function (err, foundVampires){
+//         if (err) {
+//             console.log(err);
+//             mongoose.connection.close();
+//         } else {
+//             console.log(foundVampires)
+//             mongoose.connection.close();
+//         }
+//     }
+// )
+// 3. love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+// Vampire.find({ $or: [
+//     { loves: 'appearing innocent' },
+//     { loves: 'trickery' },
+//     { loves: 'lurking in rotting mansions' },
+//     { loves: 'R&B music' },
+// ]},
+//     function (err, foundVampires){
+//         if (err) {
+//             console.log(err);
+//             mongoose.connection.close();
+//         } else {
+//             console.log(foundVampires)
+//             mongoose.connection.close();
+//         }
+//     }
+// )
+// 4. love fancy cloaks but not if they also love either top hats or virgin blood * Hint-You will also have to use $nin *
+// Vampire.find({ $or: [
+//     { loves: 'fancy cloaks' },
+//     { loves: { $nin: ['top hats'] } },
+//     { loves: { $nin: ['virgin blood'] } },
+// ]},
+//     function (err, foundVampires){
+//         if (err) {
+//             console.log(err);
+//             mongoose.connection.close();
+//         } else {
+//             console.log(foundVampires)
+//             mongoose.connection.close();
+//         }
+//     }
+// )
 /////////////////////////////////////////////////
 //### Negative Selection
 
