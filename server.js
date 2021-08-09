@@ -206,15 +206,18 @@ mongoose.connection.on('connected', () => {
 //     if (err) return console.log(err)
 //     console.log(update)
 // })
-Vampire.find({name: "Eve"}, (err, named) => {
-    if (err) return console.log(err)
-    console.log(named)
-})
-
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## UPDATE
+// Vampire.findOneAndUpdate({name: "Eve"}, {gender: "m"}, (err,updated) => {
+//     if (err) return console.log(err)
+// })
+
+Vampire.findOneAndReplace({name: "Eve"}, {moniker: "Eve"}, (err, updated) => {
+    if (err) return console.log(err)
+})
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
