@@ -1,4 +1,9 @@
-[
+// const mongoose = require('mongoose')
+// const Vampire = require('./models/vampire.js')
+
+// Vampire.create(vampires)
+
+const vampires = [
   {
     name: 'Count Chocula',
     hair_color: 'brown',
@@ -136,3 +141,5 @@
     title: 'Osiris of Sewer Rats'
   }
 ]
+
+module.exports = vampires
