@@ -46,10 +46,10 @@ mongoose.connection.on('connected', () => {
 //     if (err) return console.log(err);
 //     console.log(foundVampires)
 // })
-vampire.find({victims: {$ne: 210234 }}, (err,foundVampires) => {
-    if (err) return console.log(err);
-    console.log(foundVampires)
-})
+// vampire.find({victims: {$ne: 210234 }}, (err,foundVampires) => {
+//     if (err) return console.log(err);
+//     console.log(foundVampires)
+// })
 // vampire.find({victims: {$gt: 150, $lt: 500}}, (err,foundVampires) => {
 //     if (err) return console.log(err);
 //     console.log(foundVampires)
@@ -59,10 +59,22 @@ vampire.find({victims: {$ne: 210234 }}, (err,foundVampires) => {
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
+// vampire.find({title: { $exists: true}}, (err, foundVampires) => {
+//     if (err) return console.log(err);
+//     console.log(foundVampires)
+// })
 // vampire.find({victims: { $exists: false}}, (err, foundVampires) => {
 //     if (err) return console.log(err);
 //     console.log(foundVampires)
 // })
+// vampire.find({victims: { $exists: false}, title: {$exists:true} }, (err, foundVampires) => {
+//     if (err) return console.log(err);
+//     console.log(foundVampires)
+// })
+vampire.find({victims: { $exists: true, $gt: 1000}}, (err, foundVampires) => {
+    if (err) return console.log(err);
+    console.log(foundVampires)
+})
 /////////////////////////////////////////////////
 // ### Select with OR
 
