@@ -92,14 +92,42 @@ mongoose.connection.on('connected', () => {
     //     if(err) return console.log(err)
     //     console.log(foundVampires)
     // })
-    vampire.find({ $or: [ { hair_color: 'red'}, { eye_color: 'green'
-    }]}, (err, foundVampires) => {
-        if(err) return console.log(err)
-        console.log(foundVampires)
-    })
+    // vampire.find({ $or: [ { hair_color: 'red'}, { eye_color: 'green'
+    // }]}, (err, foundVampires) => {
+    //     if(err) return console.log(err)
+    //     console.log(foundVampires)
+    // })
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
+// vampire.find({ $or: [ { loves: 'frilly shirtsleeves'}, { loves: 'frilly collars'
+//     }]}, (err, foundVampires) => {
+//         if(err) return console.log(err)
+//         console.log(foundVampires)
+//     })
+// vampire.find({ $or: 
+//     [ 
+//         { loves: 'appearing innocent'}, 
+//         { loves: 'trickery'},
+//         { loves: 'lurking in rotting mansions'},
+//         { loves: 'R&B music'},
+//     ]
+// }, 
+// (err, foundVampires) => {
+//         if(err) return console.log(err)
+//         console.log(foundVampires)
+//     })
+// vampire.find({ loves: 'brooding'}, (err, foundVampires) => {
+//         if(err) return console.log(err)
+//         console.log(foundVampires)
+//     })
 
+/// $nin Not working /////
+// vampire.find({ loves: 'fancy cloaks'},
+//              { loves: { $nin: ['top hats', 'virgin blood']}},
+//               (err, foundVampires) => {
+//         if(err) return console.log(err)
+//         console.log(foundVampires)
+//     })
 /////////////////////////////////////////////////
 //### Negative Selection
 
