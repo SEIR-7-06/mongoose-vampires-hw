@@ -304,17 +304,17 @@ mongoose.connection.on('connected', () => {
 //     }
 // ) 
 // 5. have not killed more than 200 people
-Vampire.find({ victims: { $lt: 200 }},
-    function (err, foundVampires){
-        if (err) {
-            console.log(err);
-            mongoose.connection.close();
-        } else {
-            console.log(foundVampires);
-            mongoose.connection.close();
-        }
-    }
-) 
+// Vampire.find({ victims: { $lt: 200 }},
+//     function (err, foundVampires){
+//         if (err) {
+//             console.log(err);
+//             mongoose.connection.close();
+//         } else {
+//             console.log(foundVampires);
+//             mongoose.connection.close();
+//         }
+//     }
+// ) 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
