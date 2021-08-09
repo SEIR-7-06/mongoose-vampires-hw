@@ -36,49 +36,49 @@ mongoose.connect(connectionString, {
 // })
 
 // ### Add some new vampire data
-Vampire.create({
-	name: 'Harmony Legend',  
-	hair_color: 'green', 
-	eye_color: 'hazel',  
-	dob: (1901, 12, 23), 
-	loves: ['swimming', 'singing', 'killing'], 
-	location: 'Brooklyn, New York', 
-	gender: 'f', 
-	victims: 23849
-}),
+// Vampire.create({
+// 	name: 'Harmony Legend',  
+// 	hair_color: 'green', 
+// 	eye_color: 'hazel',  
+// 	dob: (1901, 12, 23), 
+// 	loves: ['swimming', 'singing', 'killing'], 
+// 	location: 'Brooklyn, New York', 
+// 	gender: 'f', 
+// 	victims: 23849
+// }),
 
-Vampire.create({
-	name: 'Issac Mackle',  
-	hair_color: 'black', 
-	eye_color: 'green',  
-	dob: (1527, 07, 18), 
-	loves: ['climbing', 'runing', 'jumping'], 
-	location: 'New York City, New York', 
-	gender: 'm', 
-	victims: 890
-})
+// Vampire.create({
+// 	name: 'Issac Mackle',  
+// 	hair_color: 'black', 
+// 	eye_color: 'green',  
+// 	dob: (1527, 07, 18), 
+// 	loves: ['climbing', 'runing', 'jumping'], 
+// 	location: 'New York City, New York', 
+// 	gender: 'm', 
+// 	victims: 890
+// })
 
-Vampire.create({
-	name: 'Alucard',  
-	hair_color: 'sliver', 
-	eye_color: 'blue',  
-	dob: (1601, 10, 27), 
-	loves: ['reading', 'traveling', 'living'], 
-	location: 'Los Angels, California', 
-	gender: 'm', 
-	victims: 28
-})
+// Vampire.create({
+// 	name: 'Alucard',  
+// 	hair_color: 'sliver', 
+// 	eye_color: 'blue',  
+// 	dob: (1601, 10, 27), 
+// 	loves: ['reading', 'traveling', 'living'], 
+// 	location: 'Los Angels, California', 
+// 	gender: 'm', 
+// 	victims: 28
+// })
 
-Vampire.create({
-	name: 'Carmilla Murray',  
-	hair_color: 'silver', 
-	eye_color: 'red',  
-	dob: (1607, 02, 08), 
-	loves: ['swords', 'fighting', 'power'], 
-	location: 'Bridge Valley, London', 
-	gender: 'f', 
-	victims: 13500
-})
+// Vampire.create({
+// 	name: 'Carmilla Murray',  
+// 	hair_color: 'silver', 
+// 	eye_color: 'red',  
+// 	dob: (1607, 02, 08), 
+// 	loves: ['swords', 'fighting', 'power'], 
+// 	location: 'Bridge Valley, London', 
+// 	gender: 'f', 
+// 	victims: 13500
+// })
 
 /////////////////////////////////////////////////
 // ## QUERYING
@@ -88,7 +88,25 @@ Vampire.create({
 //     console.log(foundWomen);
 // })
 
+// Vampire.find( {victims : { $gt: 500 } }, (err, greaterVictims) => {
+//     if (err) return console.log(err);
+//     console.log(greaterVictims);
+// } )
 
+// Vampire.find( { victims : { $lte: 150 } }, (err, fewerVictims) => {
+//     if (err) return console.log(err);
+//     console.log(fewerVictims);
+// } )
+
+// Vampire.find( { victims : { $ne: 210234 } }, (err, notEqualVictims) => {
+//     if (err) return console.log(err);
+//     console.log(notEqualVictims);
+// } )
+
+Vampire.find({ victims: { $gt: 150, $lt: 500 } }, (err, foundVampires) => {
+    if (err) return console.log(err);
+    console.log(foundVampires);
+})
 
 /////////////////////////////////////////////////
 // ### Select by comparison
