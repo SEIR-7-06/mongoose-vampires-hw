@@ -90,13 +90,52 @@ mongoose.connection.on('connected', () => {
     //     mongoose.connection.close();
     // })
     // 5. have greater than 150 AND fewer than 500 victims
-    Vampire.find({ victims: {$gt: 150, $lt: 500}}, (err, foundVampires) => {
-        console.log(foundVampires);
-        mongoose.connection.close();
-    })
+    // Vampire.find({ victims: {$gt: 150, $lt: 500}}, (err, foundVampires) => {
+    //     console.log(foundVampires);
+    //     mongoose.connection.close();
+    // })
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
-
+// 1. have a title property
+// Vampire.find({ title: {$exists: true}}, function (err, vampire){
+//     if (err) {
+//         console.log(err);
+//         mongoose.connection.close();
+//     } else {
+//         console.log("Result: ", vampire)
+//         mongoose.connection.close();
+//     }
+// })
+// 2. do not have a victims property
+// Vampire.find({ victims: {$exists: false}}, function (err, vampire){
+//     if (err) {
+//         console.log(err);
+//         mongoose.connection.close();
+//     } else {
+//         console.log("Result: ", vampire)
+//         mongoose.connection.close();
+//     }
+// })
+// 3. have a title AND no victims
+// Vampire.find({ victims: {$exists: false}, title: {$exists: true}}, function (err, vampire){
+//     if (err) {
+//         console.log(err);
+//         mongoose.connection.close();
+//     } else {
+//         console.log("Result: ", vampire)
+//         mongoose.connection.close();
+//     }
+// })
+// 4. have victims AND the victims they have are greater than 1000
+Vampire.find({ victims: {$exists: true}, victims: {$gt: 1000}}, function (err, vampire){
+    if (err) {
+        console.log(err);
+        mongoose.connection.close();
+    } else {
+        console.log("Result: ", vampire)
+        mongoose.connection.close();
+    }
+})
 /////////////////////////////////////////////////
 // ### Select with OR
 
