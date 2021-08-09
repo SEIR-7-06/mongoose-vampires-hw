@@ -1,0 +1,213 @@
+Steps to set up an Express Project from Scratch
+
+    1. npm init // creates a package.json
+    2. npm i express
+    3. git init // creates git repository
+    4. touch .gitignore //
+    5. touch server.js
+
+In 🍏 SERVER.JS 🍏
+
+    1. require express      ### const express = require('express')
+
+    2. invoke express       ### const app = express()
+
+    3. create port          ### const PORT = 4000
+
+    4. set up test route    ### app.get('/', (req, res) => {
+                                    res.send('Hello World)
+                                    })
+
+    5. start server         ### app.listen(PORT, () => {
+                                    console.log('Your Server is running on ${PORT}')
+                                    })
+
+    6. nodemon (or node)
+
+ 🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏🍏
+
+    7. npm i ejs
+    8. create 🌶'views'🌶 folder
+    9. create index.ejs
+
+In 🍊 INDEX.EJS 🍊
+
+    10. create HTML template (!)
+
+    11. 🍏 create homepage route 🍏 ### app.get('/', (req, res) => {
+                                        res.render('index.ejs')
+                                        })
+
+🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊🍊
+
+    12. create 'controllers' file
+    13. create authorsControllers.js
+    14. move authors index route into authorsControllers.js
+
+🫐 IN AUTHORSCONTROLLERS.JS 🫐
+
+    15. require express      ### const express = require('express')
+
+    16. build router         ### const router = express.Router()
+
+    17. invoke express       ### const app = express()
+
+    18. 🍏 in middleware, use router   ### app.use('/authors', authorsController) 🍏
+
+    19. 🍏 require authorsController   ### const authorsController = require('./controllers/authorsController.js') 🍏
+
+
+    20. export the module    ### module.exports = router
+
+    21. change to app.get to router.get
+
+    22. create 'new' route    ### router.get('/new', (req, res) => {
+                                    res.render('new.ejs')
+                                })
+    23. 🌶 create new.ejs with regular html template (!) 🌶
+
+    23A. 🍏 In middleware, configue express to handle form data ABOVE previous   
+                             ### app.use(express.urlencoded({ extended: false })) 🍏
+
+    23B. Set up form in new.ejs to make a request    ### <form action='/authors' method='POST'
+
+    24. create 'create' route   ### router.post('/', (req, res) => {
+                                        res.send('index.ejs)
+                                     })
+    25. 
+    
+
+🖨  DATABASE 🖨
+
+    1. npm i mongoose
+
+    2. create 🦑 models🦑 folder
+
+    3. create index.js ### const mongoose = require('mongoose');
+                           const connectionString = 'mongodb://localhost:27017/blogdb';
+                           mongoose.connect(connectionString, {
+                               useNewUrlParser: true,
+                               useUnifiedTopology: true,
+                               useCreateIndex: true,
+                               useFindAndModify: false
+                            });
+                            mongoose.connection.on('connected', () => {
+                            console.log(`Mongoose connected to ${connectionString}`);
+                            });
+
+    4. create Author.js
+
+🥕 IN AUTHOR.JS 🥕
+
+    1. export mongoose      ### const mongoose = require('mongoose')
+
+    2. set the schema       ### const authorSchema = new mongoose.Schema({
+                                                     authorName: { type: String, required: true }
+                                                    })
+                                            
+    3. create the Author model ### const Author = mongoose.model('Author', authorSchema)
+
+    4. export the Author model ### module.exports = Author
+
+    5. in index.js require Author model    ### module.exports = {
+                                            Author: require ('./Author')
+                                        }
+
+
+
+🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐🫐
+
+    25. require Author model under express      ### const db = require('../models/index.js')
+
+    26. finish create route (full)    ### router.post('/', (req, res) => {
+                                            db.Author.create(req.body, (err, createdAuthor) => {
+                                                if(err) return console.log(err)
+                                                res.redirect('/authors')
+                                            })
+                                        })
+
+
+    27. SHOW ALL DOCS ON A PAGE  
+
+        Steps:
+            1. setup index route (already done) // authorsIndex.ejs
+            2. create a template to show data (already done)  // authorsIndex.ejs
+            3. get all of the author data
+            4. pass data to template
+            5. iterate through the data and display it in the template
+             
+            6. finished index route: ### router.get('/', (req ,res) => {
+                                            db.Author.find({}, (err, allAuthors) => {
+                                            if(err) return console.log(err)
+
+                                            res.render('authors/authorsIndex.ejs', { allAuthors: allAuthors }) // a slash in front of authors will break it 
+                                            
+                                            })
+                                        })
+
+
+🎨 CSS 🎨
+
+    1. 🍏 in middleware use CSS     ### app.use(express.static('public')) 🍏
+    2. create 'public' folder
+    3. create style.css inside public folder
+    4. in ejs files =>    ### <link rel='stylesheet' href='/style.css'>
+
+
+😈 ROWDY LOGGER 😈
+
+    1. npm i rowdy-logger
+    2. 🍏 in require statements ### const rowdy = require('rowdy-logger')
+    3. in configuration  ### const rowdyResults = rowdy.begin(app)
+    4. add to server  ### rowdyResults.print() 🍏
+
+
+🤡 ADD ANOTHER RESOURCE 🤡
+
+    1. set up the model
+        a. define the schema
+        b. create the model (how mongoose creates docs in db collection)
+        c. export the model 
+        d. make model available in index.js
+    2. set up the views
+    3. set up the controller
+        a. set up express.Router()
+        b. module.exports = router
+        c. import the database  ### const db = require('../models/index.js')
+        d. 🍏 'mount' the controller to server  ###const articlesController = require('./controllers/articlesController.js') 🍏
+        e. implement RESTful routes
+
+
+😴 RESTFUL ROUTES 😴
+
+/fruits/    GET     index
+/fruits/new     GET     new
+/fruits     POST    create
+/fruits/:id     GET     show
+/fruits/:id/edit    GET     edit
+/fruits/:id     PATCH/PUT   update
+/fruits/:id     DELETE     delete
+
+
+
+
+
+
+Steps to Create a New Page
+
+    1. Create a route for that page 
+    2. Create a template for that page (ejs in views)
+    3. Go get the data for that page
+    4. Pass the data to the template 
+
+
+Steps for cloning an existing Express Project:
+
+    1. clone down the repository from github
+    2. npm install // install all dependencies
+    3. nodemon // start server
+
+EXTRA INFORMATION
+
+* pkill node //kills all express packages
+* connectionString is what your db is called in mongoose
