@@ -136,3 +136,5 @@ const vampireData = [
     title: 'Osiris of Sewer Rats'
   }
 ]
+
+module.exports = vampireData
