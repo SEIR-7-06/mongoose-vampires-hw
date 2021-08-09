@@ -170,23 +170,53 @@ mongoose.connect(connectionString, {
 //     console.log(broodVampires);
 // } )
 
-Vampire.find( { 
-    $or: [
-        {loves: 'appearing innocent'},
-        {loves: 'trickery'},
-        {loves: 'lurking in rotting mansions'},
-        {loves: 'R&B music'}
-    ]
- }, (err, muchLoveVampire) => {
-    if (err) return console.log(err);
-    console.log(muchLoveVampire);
-} )
+// Vampire.find( { 
+//     $or: [
+//         {loves: 'appearing innocent'},
+//         {loves: 'trickery'},
+//         {loves: 'lurking in rotting mansions'},
+//         {loves: 'R&B music'}
+//     ]
+//  }, (err, muchLoveVampire) => {
+//     if (err) return console.log(err);
+//     console.log(muchLoveVampire);
+// } )
 
 
 
 
 /////////////////////////////////////////////////
 //### Negative Selection
+
+// Vampire.find({ $and: [ { loves: 'ribbons' }, { eye_color: { $nin: ['brown']  } } ] }, (err, newNewVampires) => {
+//     if (err) return console.log(err);
+//     console.log(newNewVampires);
+// })
+
+
+// Vampire.find( { location: { $nin: [ 'Rome' ] } }, (err, noRomeVamp) => {
+//     if (err) return console.log(err);
+//     console.log(noRomeVamp);
+// } )
+
+
+// Vampire.find( { loves: { $nin: [ 
+//     'fancy cloaks', 
+//     'frilly shirtsleeves', 
+//     'appering innocent',
+//     'being tragic', 
+//     'brooding' ] } }, (err, noLoveVamp) => {
+//     if (err) return console.log(err);
+//     console.log(noLoveVamp);
+// } )
+
+
+Vampire.find( { victims: { $ne: 200 } }, (err, victimsVamp) => {
+    if (err) return console.log(err);
+    console.log(victimsVamp);
+} )
+
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
