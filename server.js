@@ -214,9 +214,9 @@ mongoose.connection.on('connected', () => {
 //     if (err) return console.log(err)
 // })
 
-Vampire.findOneAndReplace({name: "Eve"}, {moniker: "Eve"}, (err, updated) => {
-    if (err) return console.log(err)
-})
+    // Vampire.findOneAndUpdate({name: "Eve"}, {moniker: "Eve"}, (err, updated) => {
+    //     if (err) return console.log(err)
+    // })
 
 
 /////////////////////////////////////////////////
