@@ -154,6 +154,30 @@ mongoose.connection.on('connected', () => {
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
+// Vampire.find({$or: [{loves: "frilly collars"}, {loves: "frilly shirtsleeves"}]}, (err, fashion) => {
+//     if (err) return console.log(err)
+//     console.log(fashion)
+// })
+
+// Vampire.find({loves: "brooding"}, (err, dramatics) => {
+//     if (err) console.log(err)
+//     console.log(dramatics)
+// })
+
+// Vampire.find({$or: [
+//     {loves: "appearing innocent"}, 
+//     {loves:"trickery"}, 
+//     {loves: "lurking in rotten mansions"}, 
+//     {loves: "R&B music"}
+//     ]}, (err, wowee) => {
+//         if (err) return console.log(err)
+//         console.log(wowee)
+// })
+
+// Vampire.find({$and: [{loves: "fancy cloaks"}, {loves: {$nin: ["virgin blood", "top hats"]}}],}, (err, fancyMa) => {
+//     if (err) return console.log(err)
+//     console.log(fancyMa)
+// })
 /////////////////////////////////////////////////
 //### Negative Selection
 
