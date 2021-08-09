@@ -129,13 +129,33 @@ mongoose.connect(connectionString, {
 //     console.log(newVampires);
 // })
 
-Vampire.find( {victims : { $gt: 1000 } }, (err, manyVictims) => {
-    if (err) return console.log(err);
-    console.log(manyVictims);
-} )
+// Vampire.find( {victims : { $gt: 1000 } }, (err, manyVictims) => {
+//     if (err) return console.log(err);
+//     console.log(manyVictims);
+// } )
 
 /////////////////////////////////////////////////
 // ### Select with OR
+// Vampire.find( { $or: [ { location: 'New York, New York, US' }, { location: 'New Orleans, Louisiana, US' } ] }, (err, locationVampires) => {
+//     if (err) return console.log(err);
+//     console.log(locationVampires);
+// } )
+
+// Vampire.find( { $or: [ { loves: 'brooding' }, { loves: 'being tragic' } ] }, (err, lovesVampires) => {
+//     if (err) return console.log(err);
+//     console.log(lovesVampires);
+// } )
+
+// Vampire.find( { $or: [ { victims: { $gt: 1000 } }, { loves: 'marshmallows' } ] }, (err, crazyVampires) => {
+//     if (err) return console.log(err);
+//     console.log(crazyVampires);
+// } )
+
+Vampire.find( { $or: [ { hair_color: 'red' }, { eye_color: 'green' } ] }, (err, colorVampires) => {
+    if (err) return console.log(err);
+    console.log(colorVampires);
+} )
+
 
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
