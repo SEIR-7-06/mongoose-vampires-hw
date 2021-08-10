@@ -1,23 +1,15 @@
 const mongoose = require('mongoose')
 const vampireSchema = new mongoose.Schema({
-    vampireName: { type: String, required: true },
-    vampireHairColor: {type: String, default:'blonde'},
-    vampireEyeColor: {type:String, },
-    vapireDOB: {type:Date, default: Date.now},
-    vampireLoves: {type: [String]},
-    vampireLocation: {type:String},
-    vampireGender: {type: String},
-    vampireVictims: {
-        type: Number,
-        min: 0
-    }
-    
+    name: { type: String, required: true },
+    hair_color: {type: String, default:'blonde'},
+    eye_color: {type:String, },
+    dob: {type:Date, default: Date.now},
+    loves: {type: [String]},
+    location: {type:String},
+    gender: {type: String},
+    victims: {type: Number, min: 0} })
 
-    
-
-})
-
-const Vampire = mongoose.model('Vampire', vampireSchema);
+    const Vampire = mongoose.model('Vampire', vampireSchema);
 
 
-module.exports = Vampire
+    module.exports = Vampire;
