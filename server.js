@@ -94,6 +94,20 @@ const vamps = [
 //     console.log(output)
 // })
 
+// Vampire.find({title:{$exists:true}}, (err, output)=>{
+//     console.log(output)
+// })
+ 
+// Vampire.find(  { victims: {$exists: false}, title: {$exists: true}} , (err, output)=>{
+//     console.log(output)
+// })
+// Vampire.find(  { victims: {$exists: true}, victims: {$gt: 1000}} , (err, output)=>{
+//     console.log(output)
+// })
+
+
+
+
 
 
 /////////////////////////////////////////////////
