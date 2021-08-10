@@ -121,6 +121,44 @@ const vamps = [
 //     if(err) return console.log(err)
 //     console.log(output)
 //   })
+// Vampire.find( { $or: [ { loves: 'frilly shirtsleeves' }, { loves: 'frilly collatrs'} ] }, (err, output) => {
+//     if(err) return console.log(err)
+//     console.log(output)
+//   })
+// Vampire.find( { loves: 'brooding' }, (err, output) => {
+//     if(err) return console.log(err)
+//     console.log(output)
+//   })
+
+// Vampire.find( { $or: [ { loves: 'appearing innocent' }, { loves: 'trickery'}, { loves: 'lurking in rotting mansions'}, { loves: 'R&B music'} ] }, (err, output) => {
+//     if(err) return console.log(err)
+//     console.log(output)
+//   })
+
+// Vampire.find( { $or: [ { loves: 'frilly shirtsleeves' }, { loves: 'frilly collars'} ] }, (err, output) => {
+//     if(err) return console.log(err)
+//     console.log(output)
+//   })
+
+
+// Vampire.find( { $nin: [ "virgin blood", "top hats" ] }, { $loves: 'fancy cloaks' }, (err, output)=>{
+//     if (err) return console.log(err)
+//     console.log(output)
+// } )
 
 
 
+// Vampire.find(  { loves: 'ribbons' , $not: {eye_color:'brown'} }, (err, output)=>{
+//     console.log(output)
+// })
+
+// Vampire.find(  { location: {$not: 'rome' }}, (err, output)=>{
+//     console.log(output)
+// })
+// Vampire.find(  { location: {$not: 'rome' }}, (err, output)=>{
+//     console.log(output)
+// })
+
+// Vampire.find(  { love: {$not: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding'] }}, (err, output)=>{
+//     console.log(output)
+// })
