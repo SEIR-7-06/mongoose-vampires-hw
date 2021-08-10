@@ -4,12 +4,27 @@
   "description": "For this **2 day** homework assignment, you will be using some  mongoose commands and you will be **reading documentation**  to find **new** queries/techniques to complete the following activities. Researching queries and implementing them is a big part of this homework!",
   "main": "server.js",
   "scripts": {
-    "test": "mocha ./tests --exit"
+    "test": "mocha ./tests --exit",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.2.0",
-    "mocha": "^9.0.3"
-  }
+    "express": "^4.17.1",
+    "mocha": "^9.0.3",
+    "mongoose": "^5.13.5"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meganroberta80/mongoose-vampires-hw.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meganroberta80/mongoose-vampires-hw/issues"
+  },
+  "homepage": "https://github.com/meganroberta80/mongoose-vampires-hw#readme"
 }
