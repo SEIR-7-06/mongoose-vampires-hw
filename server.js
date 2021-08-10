@@ -83,6 +83,18 @@ const vamps = [
 //     console.log(output)
 // })
 
+// Vampire.find({victims: {$ne:210234}}, (err, output)=>{
+//     console.log(output)
+// })
+
+// Vampire.find({victims: {$ne:210234}}, (err, output)=>{
+//     console.log(output)
+// })
+// Vampire.find({victims: { $gt : 150 , $lt : 500 }}, (err, output)=>{
+//     console.log(output)
+// })
+
+
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
