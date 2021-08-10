@@ -105,12 +105,27 @@ const Vampire = new mongoose.Vampire({
 /////////////////////////////////////////////////
 // ### Select by comparison
 
+Vampire.find(gender: f). (err, output) => {
+    console.log(output);
+}
+Vampire.find(victims: gte: 500, (err, output) =>
+console.log(output))
+
+Vampire.find(vitims: 2101234. (err, output) => {
+    console.log(output);
+})
+
+
+Vampire.find(victims: gt: 150, 500 (err, output))
+    console.log(output);
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
-
+Vampire.find(title:exists:true) (err, output) => {
+    console.log(output)
+}
 /////////////////////////////////////////////////
 // ### Select with OR
-
+Vampire.find()
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
